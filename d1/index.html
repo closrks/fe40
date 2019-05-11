@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./index.css">
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const trigger = document.querySelector('.progress-button button');
+                trigger.addEventListener('click', () => {
+                    document.querySelector('.progress-button').classList.toggle('loading');
+                    document.querySelector('.progress-button button').toggleAttribute('disabled');
+                    setTimeout(() => {
+                        document.querySelector('.progress-button').classList.toggle('loading');
+                        document.querySelector('.progress-button button').removeAttribute('disabled');
+                    }, 2000);
+                });
+            });
+        </script> 
+        <!-- https://stackoverflow.com/questions/14389566/stop-css3-transition-from-firing-on-page-load/42969608#42969608 -->
+        <title>Progress Button</title>
+    </head>
+    <body>
+        <div class="progress-button">
+            <button type="button">
+                <span>Submit</span>
+            </button>
+            <!-- <svg class="progress-circle" height="70" width="70">
+                <path d="
+                    M 35, 35
+                    m -32.5, 0
+                    a 32.5,32.5 0 1,1 65,0
+                    a 32.5,32.5 0 1,1 -65,0
+                    "
+                    stroke-dasharray: "204.23233032226562"
+                    stroke-dashoffset: "204.23233032226562"
+                    />
+            </svg> -->
+        </div>
+    </body>
+</html>
